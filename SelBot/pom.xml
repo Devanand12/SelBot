@@ -69,7 +69,7 @@
 						<!-- <includes> <include>LoginUsingCucumber.java</include> </includes> -->
 						<!-- This is for TestNG with Page Object Model -->
 						<suiteXmlFiles>
-							<suiteXmlFile>SmokeAndSanity.xml</suiteXmlFile>
+							<suiteXmlFile>SmokeSanity.xml</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
