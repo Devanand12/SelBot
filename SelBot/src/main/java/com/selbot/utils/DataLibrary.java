@@ -14,9 +14,7 @@ public class DataLibrary {
 				new XSSFWorkbook("./data/"+excelfileName+".xlsx");
 		XSSFSheet sheet = wbook.getSheetAt(0);
 		int rowCount = sheet.getLastRowNum();
-		System.out.println("Row Count is: "+rowCount);
 		int colCount = sheet.getRow(0).getLastCellNum();
-		System.out.println("Col Count is: "+colCount);
 		Object[][] data = new Object[rowCount][colCount];
 		for (int i = 1; i <= rowCount; i++) {
 			XSSFRow row = sheet.getRow(i);
@@ -27,6 +25,7 @@ public class DataLibrary {
 				System.out.println(stringCellValue);
 			} 
 		}
+		wbook.close();
 		return data;
 	}
 }
