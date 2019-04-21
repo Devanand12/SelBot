@@ -14,7 +14,13 @@ public class ViewLeadPage extends Annotations{
 	}
 	
 	@FindBy(how=How.ID, using="viewLead_companyName_sp")  WebElement eleCompanyName;
+	@FindBy(how=How.LINK_TEXT, using="Duplicate Lead")  WebElement eleDuplicateLead;
 
+
+	public DuplicateLeadPage clickDuplicateLead() {
+		click(eleDuplicateLead);
+		return new DuplicateLeadPage();
+	}
 	public ViewLeadPage verifyCompanyName(String data) {
 		String companyName = getElementText(eleCompanyName);
 		if (companyName.contains(data)) {

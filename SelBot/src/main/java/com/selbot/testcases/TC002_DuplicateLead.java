@@ -6,19 +6,21 @@ import org.testng.annotations.Test;
 import com.selbot.pages.LoginPage;
 import com.selbot.testng.api.base.Annotations;
 
-public class TC001_CreateLead extends Annotations{
+public class TC002_DuplicateLead extends Annotations{
 	
 	@BeforeTest
 	public void setData() {
-		testcaseName = "TC001_CreateLead";
-		testcaseDec = "Login, Create Lead and Verify";
-		author = "Sarath";
-		category = "Smoke";
-		excelFileName = "TC001";
+		testcaseName = "TC002_DuplicateLead";
+		testcaseDec = "Login, Create, Duplicate that Lead and Verify";
+		author = "Koushik";
+		category = "Sanity";
+		excelFileName = "TC002";
 	} 
 
 	@Test(dataProvider="fetchData") 
-	public void createLead(String uName, String pwd, String companyName, String firstName, String lastName) {
+	public void createLead(String uName, String pwd, 
+				String companyName, String firstName, 
+				String lastName, String newCompanyName) {
 		new LoginPage()
 		.enterUserName(uName)
 		.enterPassWord(pwd) 
@@ -30,7 +32,10 @@ public class TC001_CreateLead extends Annotations{
 		.enterFirstName(firstName)
 		.enterLastName(lastName)
 		.clickCreateLead()
-		.verifyCompanyName(companyName);
+		.clickDuplicateLead()
+		.enterCompanyName(newCompanyName)
+		.clickDuplicate()
+		.verifyCompanyName(newCompanyName);
 	}
 	
 }
